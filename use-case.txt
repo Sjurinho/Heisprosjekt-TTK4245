@@ -1,1 +1,34 @@
-Wazzguud?
+Bestille heis
+Goal level: Sea level
+
+
+Main Success Scenario:
+1. Bestillingsknapp trykket av actor (triggerhendelse).
+2. Heis registrerer retning fra nåværende posisjon, og kjører til bestilt etasje.
+3. Bestillingsknapp lyser.
+4. Heisen stopper.
+5. Bestillingsknapp slutter å lyse.
+6. Dørene åpnes i tre sekunder (dør åpen LED aktiv).
+7. Actor velger destinasjonsetasje.
+8. Destinasjonslys aktiv.
+9. Heis kjører til destinasjonsetasje.
+10. Destinasjonslys av. Dørene åpnes i tre sekunder (dør åpen LED aktiv). 
+ 
+
+Extensions:
+xa (uansett posisjon): Dersom STOPP-knapp er aktiv stopper heisen
+	.1: Dersom STOPP-knapp trykkes når heisen er i en etasje, åpnes dørene
+	.2: Døren er åpen i tre sekunder etter STOPP-knapp er sluppet. 
+1a: Dersom heisen er i udefinert tilstand, kjører den opp til nærmeste etasje. Fortsett MSS steg 2 
+2a: Dersom heisen allerede befinner seg i etasjen den blir bestilt til, hopp til MSS steg 5.
+9a: Dersom heisen kjører forbi en annen actor som skal SAMME vei som heisen, MSS steg 5-8. 
+	.1: Utføre MSS steg 4-6 i NÆRMESTE bestilte etasje   
+
+
+Success guarantee:
+1. Actor ankommer ønsket etasje.
+2. Heis klar til ny actor. 
+
+
+Pre-condition:
+1. Endestoppbryterne er ikke aktivert. 
